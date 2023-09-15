@@ -21,7 +21,7 @@
                     <div class="mb-3">
                         <label for="src" class="form-label">Thumb</label>
                         <input type="text" maxlength="1024" class="form-control" id="thumb" name="thumb"
-                            placeholder="Enter value..." value="{{ $comic->src }}">
+                            placeholder="Enter value..." value="{{ $comic->thumb }}">
                     </div>
 
                     <div class="mb-3">

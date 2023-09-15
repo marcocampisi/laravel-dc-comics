@@ -38,31 +38,31 @@
 
                     <div class="mb-3">
                         <label for="cooking_time" class="form-label">Prezzo</label>
-                        <input type="number" min="1" max="15" class="form-control" id="cooking_time"
+                        <input type="number" class="form-control" id="price"
                             name="cooking_time" placeholder="Enter value..." value="{{ $comic->price }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="weight" class="form-label">Serie</label>
-                        <input type="number" min="100" max="5000" class="form-control" id="weight"
+                        <input type="text" maxlength="128" class="form-control" id="series"
                             name="weight" placeholder="Enter value..." required value="{{ $comic->series }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="weight" class="form-label">Data uscita</label>
-                        <input type="number" min="100" max="5000" class="form-control" id="weight"
+                        <input type="date" class="form-control" id="sale_date"
                             name="weight" placeholder="Enter value..." required value="{{ $comic->sale_date }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="weight" class="form-label">Artisti (separati da virgola)</label>
-                        <input type="number" min="100" max="5000" class="form-control" id="weight"
+                        <input type="text" maxlength="1024" class="form-control" id="artists"
                             name="weight" placeholder="Enter value..." required value="{{ $comic->artists }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="weight" class="form-label">Scrittori (separati da virgola)</label>
-                        <input type="number" min="100" max="5000" class="form-control" id="weight"
+                        <input type="text" maxlength="1024" class="form-control" id="writers"
                             name="weight" placeholder="Enter value..." required value="{{ $comic->writers }}">
                     </div>
 

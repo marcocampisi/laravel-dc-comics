@@ -28,8 +28,8 @@
                             <tr>
                                 <th scope="row">{{ $comic->id }}</th>
                                 <td>{{ $comic->title }}</td>
-                                <td>{{ $comic->price }}</td>
-                                <td>{{ $comic->type }}</td>
+                                <td>{{ $comic->price }}$</td>
+                                <td>{{ ucfirst($comic->type) }}</td>
                                 <td>
                                     <a href="{{ route('comics.show', ['comic' => $comic->id]) }}"
                                         class="btn btn-primary mx-2">

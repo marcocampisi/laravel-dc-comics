@@ -4,20 +4,25 @@
 
 @section('main-content')
     <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h1>{{ $comic->title }}</h1>
-            </div>
-            <div class="card-body">
-                <p><strong>Descrizione</strong> {{ $comic->description }}</p>
-                <p><strong>Copertina:</strong></p>
-                <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}" class="w-25">
-                <p><strong>Prezzo:</strong> ${{ $comic->price }}</p>
-                <p><strong>Serie:</strong> {{ $comic->series }}</p>
-                <p><strong>Data uscita:</strong> {{ $comic->sale_date }}</p>
-                <p><strong>Tipo:</strong> {{ $comic->type }}</p>
-                <p><strong>Artisti:</strong>{{ implode(', ', json_decode($comic->artists)) }}</p>
-                <p><strong>Scrittori:</strong>{{ implode(', ', json_decode($comic->writers)) }}</p>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="card">
+                    <img src="{{ $comic->thumb }}" class="card-img-top w-50 mx-auto" alt="{{ $comic->title }}">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ $comic->title }}</h5>
+                            <p class="card-text">{{ $comic->description }}.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Prezzo:</strong> {{ $comic->price }}$</li>
+                        <li class="list-group-item"><strong>Data uscita:</strong> {{ $comic->sale_date }}</li>
+                        <li class="list-group-item"><strong>Tipo:</strong> {{ $comic->type }}</li>
+                        <li class="list-group-item"><strong>Artisti:</strong>
+                            {{ implode(', ', json_decode($comic->artists)) }}</li>
+                        <li class="list-group-item"><strong>Scrittori:</strong>
+                            {{ implode(', ', json_decode($comic->writers)) }}</li>
+                    </ul>
+                </div>
+                <a href="/comics" class="btn btn-primary my-4 d-block">Torna all'indice</a>
             </div>
         </div>
     </div>

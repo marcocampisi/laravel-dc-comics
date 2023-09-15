@@ -19,8 +19,8 @@
                     @method('PUT')
 
                     <div class="mb-3">
-                        <label for="src" class="form-label">Src</label>
-                        <input type="text" maxlength="1024" class="form-control" id="src" name="src"
+                        <label for="src" class="form-label">Thumb</label>
+                        <input type="text" maxlength="1024" class="form-control" id="thumb" name="thumb"
                             placeholder="Enter value..." value="{{ $comic->src }}">
                     </div>
 
@@ -37,33 +37,33 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="cooking_time" class="form-label">Prezzo</label>
+                        <label for="price" class="form-label">Prezzo</label>
                         <input type="number" class="form-control" id="price"
-                            name="cooking_time" placeholder="Enter value..." value="{{ $comic->price }}">
+                            name="price" placeholder="Enter value..." value="{{ $comic->price }}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="weight" class="form-label">Serie</label>
+                        <label for="series" class="form-label">Serie</label>
                         <input type="text" maxlength="128" class="form-control" id="series"
-                            name="weight" placeholder="Enter value..." required value="{{ $comic->series }}">
+                            name="series" placeholder="Enter value..." required value="{{ $comic->series }}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="weight" class="form-label">Data uscita</label>
+                        <label for="sale_date" class="form-label">Data uscita</label>
                         <input type="date" class="form-control" id="sale_date"
-                            name="weight" placeholder="Enter value..." required value="{{ $comic->sale_date }}">
+                            name="sale_date" placeholder="Enter value..." required value="{{ $comic->sale_date }}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="weight" class="form-label">Artisti (separati da virgola)</label>
+                        <label for="artists" class="form-label">Artisti (separati da virgola)</label>
                         <input type="text" maxlength="1024" class="form-control" id="artists"
-                            name="weight" placeholder="Enter value..." required value="{{ $comic->artists }}">
+                            name="artists" placeholder="Enter value..." required value="{{ $comic->artists }}">
                     </div>
 
                     <div class="mb-3">
-                        <label for="weight" class="form-label">Scrittori (separati da virgola)</label>
+                        <label for="writers" class="form-label">Scrittori (separati da virgola)</label>
                         <input type="text" maxlength="1024" class="form-control" id="writers"
-                            name="weight" placeholder="Enter value..." required value="{{ $comic->writers }}">
+                            name="writers" placeholder="Enter value..." required value="{{ $comic->writers }}">
                     </div>
 
                     <div class="mb-3">

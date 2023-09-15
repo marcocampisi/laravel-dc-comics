@@ -31,6 +31,9 @@ class ComicController extends Controller
     {
         $formData = $request->all();
 
+        $artists = is_array($formData['artists']) ? implode(', ', $formData['artists']) : $formData['artists'];
+        $writers = is_array($formData['writers']) ? implode(', ', $formData['writers']) : $formData['writers'];
+
         $comic = new Comic();
         $comic->title = $formData['title'];
         $comic->description = $formData['description'];
@@ -39,8 +42,8 @@ class ComicController extends Controller
         $comic->series = $formData['series'];
         $comic->sale_date = $formData['sale_date'];
         $comic->type = $formData['type'];
-        $comic->artists = json_encode($formData['artists']);
-        $comic->writers = json_encode($formData['writers']);
+        $comic->artists = $artists;
+        $comic->writers = $writers;
 
         $comic->save();
 
@@ -68,33 +71,28 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        $comic = Comic::findOrFail($id);
+        $formData = $request->all();
 
-        $validatedData = $request->validate([
-            'title' => 'required|string',
-            'description' => 'required|string',
-            'series' => 'required|string',
-            'sale_date' => 'required|date',
-            'price' => 'required|numeric',
-            'type' => 'required|string',
-            'artists' => 'required|array',
-            'writers' => 'required|array'
-        ]);
+        $artists = is_array($formData['artists']) ? implode(', ', $formData['artists']) : $formData['artists'];
+        $writers = is_array($formData['writers']) ? implode(', ', $formData['writers']) : $formData['writers'];
 
-        $comic->title = $validatedData['title'];
-        $comic->description = $validatedData['description'];
-        $comic->series = $validatedData['series'];
-        $comic->sale_date = $validatedData['sale_date'];
-        $comic->price = $validatedData['price'];
-        $comic->type = $validatedData['type'];
-        $comic->artists = json_encode($validatedData['artists']);
-        $comic->writers = json_encode($validatedData['writers']);
+        $comic->title = $formData['title'];
+        $comic->description = $formData['description'];
+        $comic->thumb = $formData['thumb'];
+        $comic->price = $formData['price'];
+        $comic->series = $formData['series'];
+        $comic->sale_date = $formData['sale_date'];
+        $comic->type = $formData['type'];
+        $comic->artists = $artists;
+        $comic->writers = $writers;
+
         $comic->save();
 
-        return redirect()->route('comics.show', ['comic' => $comic->id]);
+        return redirect()->route('comics.show', ['comic' => $comic->id])->with('success', 'Comic updated successfully.');
     }
+
 
     /**
      * Remove the specified resource from storage.

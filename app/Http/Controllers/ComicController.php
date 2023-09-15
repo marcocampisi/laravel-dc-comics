@@ -39,8 +39,8 @@ class ComicController extends Controller
         $comic->series = $formData['series'];
         $comic->sale_date = $formData['sale_date'];
         $comic->type = $formData['type'];
-        $comic->artists = $formData['artists'];
-        $comic->writers = $formData['writers'];
+        $comic->artists = json_encode($formData['artists']);
+        $comic->writers = json_encode($formData['writers']);
 
         $comic->save();
 

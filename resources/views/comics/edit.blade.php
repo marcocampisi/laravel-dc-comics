@@ -38,32 +38,34 @@
 
                     <div class="mb-3">
                         <label for="price" class="form-label">Prezzo</label>
-                        <input type="number" class="form-control" id="price"
-                            name="price" placeholder="Enter value..." value="{{ $comic->price }}">
+                        <input type="number" class="form-control" id="price" name="price"
+                            placeholder="Enter value..." value="{{ $comic->price }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="series" class="form-label">Serie</label>
-                        <input type="text" maxlength="128" class="form-control" id="series"
-                            name="series" placeholder="Enter value..." required value="{{ $comic->series }}">
+                        <input type="text" maxlength="128" class="form-control" id="series" name="series"
+                            placeholder="Enter value..." required value="{{ $comic->series }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="sale_date" class="form-label">Data uscita</label>
-                        <input type="date" class="form-control" id="sale_date"
-                            name="sale_date" placeholder="Enter value..." required value="{{ $comic->sale_date }}">
+                        <input type="date" class="form-control" id="sale_date" name="sale_date"
+                            placeholder="Enter value..." required value="{{ $comic->sale_date }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="artists" class="form-label">Artisti (separati da virgola)</label>
-                        <input type="text" maxlength="1024" class="form-control" id="artists"
-                            name="artists" placeholder="Enter value..." required value="{{ $comic->artists }}">
+                        <input type="text" maxlength="1024" class="form-control" id="artists" name="artists"
+                            placeholder="Enter value..." required
+                            value="{{ is_array($comic->artists) ? implode(', ', $comic->artists) : $comic->artists }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="writers" class="form-label">Scrittori (separati da virgola)</label>
-                        <input type="text" maxlength="1024" class="form-control" id="writers"
-                            name="writers" placeholder="Enter value..." required value="{{ $comic->writers }}">
+                        <input type="text" maxlength="1024" class="form-control" id="writers" name="writers"
+                            placeholder="Enter value..." required
+                            value="{{ is_array($comic->artists) ? implode(', ', $comic->artists) : $comic->artists }}">
                     </div>
 
                     <div class="mb-3">

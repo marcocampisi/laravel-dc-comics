@@ -75,8 +75,8 @@ class ComicController extends Controller
     {
         $formData = $request->all();
 
-        $artists = is_array($formData['artists']) ? implode(', ', $formData['artists']) : $formData['artists'];
-        $writers = is_array($formData['writers']) ? implode(', ', $formData['writers']) : $formData['writers'];
+        $artists = explode(', ', $formData['artists']);
+        $writers = explode(', ', $formData['writers']);
 
         $comic->title = $formData['title'];
         $comic->description = $formData['description'];

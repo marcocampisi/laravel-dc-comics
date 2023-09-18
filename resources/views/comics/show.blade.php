@@ -17,9 +17,9 @@
                         <li class="list-group-item"><strong>Data uscita:</strong> {{ $comic->sale_date }}</li>
                         <li class="list-group-item"><strong>Tipo:</strong> {{ $comic->type }}</li>
                         <li class="list-group-item"><strong>Artisti:</strong>
-                            {{ implode(', ', json_decode($comic->artists)) }}</li>
+                            {{ $comic->artists }}</li>
                         <li class="list-group-item"><strong>Scrittori:</strong>
-                            {{ implode(', ', json_decode($comic->writers)) }}</li>
+                            {{ $comic->writers }}</li>
                     </ul>
                 </div>
                 <a href="/comics" class="btn btn-primary my-4 d-block">Torna all'indice</a>

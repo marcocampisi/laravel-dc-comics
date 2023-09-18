@@ -31,16 +31,14 @@ class ComicController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|max:70',
-            'descritpion' => 'required',
+            'description' => 'required',
             'thumb' => 'nullable|active_url',
             'price' => 'required|decimal:0,2',
             'series' => 'required',
             'sale_date' => 'required|date',
             'type' => 'required',
-            'artists' => 'rquired|array',
-            'artists.*' => 'string',
-            'writers' => 'rquired|array',
-            'writers.*' => 'string'
+            'artists' => 'required|string',
+            'writers' => 'required|string'
         ]);
 
         $comic = new Comic();
@@ -51,8 +49,8 @@ class ComicController extends Controller
         $comic->series = $validatedData['series'];
         $comic->sale_date = $validatedData['sale_date'];
         $comic->type = $validatedData['type'];
-        $comic->artists = implode(', ', $validatedData['artists']);
-        $comic->writers = implode(', ', $validatedData['writers']);
+        $comic->artists = $validatedData['artists'];
+        $comic->writers = $validatedData['writers'];
 
         $comic->save();
 
@@ -82,20 +80,27 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        $formData = $request->all();
+        $validatedData = $request->validate([
+            'title' => 'required|max:70',
+            'description' => 'required',
+            'thumb' => 'nullable|active_url',
+            'price' => 'required|decimal:0,2',
+            'series' => 'required',
+            'sale_date' => 'required|date',
+            'type' => 'required',
+            'artists' => 'required',
+            'writers' => 'required'
+        ]);
 
-        $artists = explode(', ', $formData['artists']);
-        $writers = explode(', ', $formData['writers']);
-
-        $comic->title = $formData['title'];
-        $comic->description = $formData['description'];
-        $comic->thumb = $formData['thumb'];
-        $comic->price = $formData['price'];
-        $comic->series = $formData['series'];
-        $comic->sale_date = $formData['sale_date'];
-        $comic->type = $formData['type'];
-        $comic->artists = $artists;
-        $comic->writers = $writers;
+        $comic->title = $validatedData['title'];
+        $comic->description = $validatedData['description'];
+        $comic->thumb = $validatedData['thumb'];
+        $comic->price = $validatedData['price'];
+        $comic->series = $validatedData['series'];
+        $comic->sale_date = $validatedData['sale_date'];
+        $comic->type = $validatedData['type'];
+        $comic->artists = $validatedData['writers'];
+        $comic->writers = $validatedData['writers'];
 
         $comic->save();
 
